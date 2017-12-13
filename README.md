@@ -1,7 +1,7 @@
 # microMouseSwarm program which is written in C 
  A program which maps a perfect connected maze using a swarm of microMouse type robots
  
- which start at random locations in the maze and share their partial mappings when one maze cell away from each other. Until the maze is fully mapped for one of the microMice.
+ Each microMouse start at random locations in the maze and share their partial mappings when one maze cell away from each other. This continues until the maze is fully mapped for one of the microMice.
  
  Four algorithmic choices for the maze solving.
  
