@@ -32,13 +32,14 @@ int main(int argc, char *argv[])
 	int temp = 0;
 	int timeRun = 0;
 	int flag = 0;
+	int numTests = (atoi(argv[5]));
 	setAlgChoice(atoi(argv[3]));
 	setNumBots(atoi(argv[4]));
 	/* 
 	 *Loop until number of Runs is complete
 	 */
 	/*run countStepsFunc and determine number of moves and timeSlots for microMouseArray to form shape*/
-	while(i < 10000)
+	while(i < numTests)
 	{
 		temp = countStepsFunc();
 		if(temp >  (-1) )
