@@ -5,7 +5,15 @@
  
  Four algorithmic choices for the maze solving.
  
- Choices are: (1)Left Wall Follow, (2) Right Wall Follow, (3) 50/50 chance of Left or Right Wall Follow, (4)Switch between Left or Right Wall follow 
+ Algorithm Choices are:
+ 
+ (1)Left Wall Follow 
+ 
+ (2) Right Wall Follow
+ 
+ (3) 50/50 chance of Left or Right Wall Follow
+ 
+ (4)Switch between Left or Right Wall follow 
  when next to another microMouse
  
 This is a general program only using the libraries
