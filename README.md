@@ -1,5 +1,7 @@
 # microMouseSwarm program which is written in C 
- A program which maps a perfect connected maze using a swarm of microMouse type robots
+ A program which maps a perfectly connected maze using a swarm of microMouse type robots
+ 
+ The makefile is for a standard gcc compiler
  
  Each microMouse start at random locations in the maze and share their partial mappings when one maze cell away from each other. This continues until the maze is fully mapped for one of the microMice.
  
