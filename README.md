@@ -1,5 +1,8 @@
 # microMouseSwarm program which is written in C 
- A program which maps a perfectly connected maze using a swarm of microMouse type robots
+ 
+ https://media.giphy.com/media/3oszOc1V32IwZqqyVk/giphy.gif
+ 
+ ![Alt Text](A program which maps a perfectly connected maze using a swarm of microMouse type robots)
  
  The makefile is for a standard gcc compiler
  
