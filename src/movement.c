@@ -92,37 +92,36 @@ void moveMicroMouseArray(int **targetGrid, int boundsX, int boundsY, microMouseB
 	while(i < numBots)
 	{
 		microMouseArrayMapSharing(targetGrid, boundsX, boundsY, microMouseArray,i);
-		if(algChoice == 1)
+		switch(algChoice)
 		{
-		 wallFollowLeftStrong(targetGrid, boundsX, boundsY, microMouseArray[i], i + 2);
-		}
-		if(algChoice == 2)
-		{
-		 wallFollowRightStrong(targetGrid, boundsX, boundsY, microMouseArray[i], i + 2);
-		}
-		if(algChoice == 3)
-		{
-			if( (i%2) == 0 )
-			{
-				wallFollowLeftStrong(targetGrid, boundsX, boundsY, microMouseArray[i], i + 2);
-			}
-			else
-			{
+			case(1):
+				 wallFollowLeftStrong(targetGrid, boundsX, boundsY, microMouseArray[i], i + 2);
+				 break;
+			case(2):
 				wallFollowRightStrong(targetGrid, boundsX, boundsY, microMouseArray[i], i + 2);
-			}
-		}
-		if(algChoice == 4)
-		{
-			if((*microMouseArray[i]).wallFollow != 0)
-			{
-				wallFollowLeftStrong(targetGrid, boundsX, boundsY, microMouseArray[i], i + 2);
-				(*microMouseArray[i]).wallFollow = 1;
-			}
-			if((*microMouseArray[i]).wallFollow != 1)
-			{
-				wallFollowRightStrong(targetGrid, boundsX, boundsY, microMouseArray[i], i + 2);
-				(*microMouseArray[i]).wallFollow = 0;
-			}
+				break;
+			case(3):
+				if( (i%2) == 0 )
+				{
+					wallFollowLeftStrong(targetGrid, boundsX, boundsY, microMouseArray[i], i + 2);
+				}
+				else
+				{
+					wallFollowRightStrong(targetGrid, boundsX, boundsY, microMouseArray[i], i + 2);
+				}
+				break;
+			case(4):
+				if((*microMouseArray[i]).wallFollow != 0)
+				{
+					wallFollowLeftStrong(targetGrid, boundsX, boundsY, microMouseArray[i], i + 2);
+					(*microMouseArray[i]).wallFollow = 1;
+				}
+				elseif((*microMouseArray[i]).wallFollow != 1)
+				{
+					wallFollowRightStrong(targetGrid, boundsX, boundsY, microMouseArray[i], i + 2);
+					(*microMouseArray[i]).wallFollow = 0;
+				}
+				break;
 		}
 		i++;
 	}
