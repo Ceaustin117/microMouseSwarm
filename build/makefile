@@ -1,4 +1,4 @@
-all: makeMaze.o movement.o microMouse.o printers.o staticVars.o WallFollow.o microMouseSim
+all: makeMaze.o movement.o microMouse.o printers.o staticVars.o wallFollow.o microMouseSim
 
 makeMaze.o:makeMaze.c
 	gcc -c makeMaze.c
@@ -10,7 +10,7 @@ printers.o:printers.c
 	gcc -c printers.c
 staticVars.o:staticVars.c
 	gcc -c staticVars.c
-WallFollow.o:WallFollow.c
-	gcc -c WallFollow.c
-microMouseSim:	functions.h staticVars.h makeMaze.o movement.o microMouse.o printers.o staticVars.o WallFollow.o main.c
-	gcc -g -o microMouseSim makeMaze.o movement.o microMouse.o printers.o staticVars.o WallFollow.o main.c -lm
+WallFollow.o:wallFollow.c
+	gcc -c wallFollow.c
+microMouseSim:	functions.h staticVars.h makeMaze.o movement.o microMouse.o printers.o staticVars.o wallFollow.o main.c
+	gcc -g -o microMouseSim makeMaze.o movement.o microMouse.o printers.o staticVars.o wallFollow.o main.c -lm
