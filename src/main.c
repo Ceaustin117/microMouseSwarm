@@ -3,7 +3,10 @@
  *argv[2]=Y Dimension of the grid
  */
 #include "staticVars.h"
-#include "functions.h"
+#include "movement.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 /*
    main function
  */
@@ -41,7 +44,7 @@ int main(int argc, char *argv[])
 	/*run countStepsFunc and determine number of moves and timeSlots for microMouseArray to form shape*/
 	while(i < numRuns)
 	{
-		temp = countStepsFunc();
+		temp = movementCountStepsFunc();
 		if(temp >  (-1) )
 		{
 			timeSlotsSum+=temp;
@@ -65,3 +68,4 @@ int main(int argc, char *argv[])
 	/* done with main function return 0 and exit program*/
 	return 0;
 }
+
