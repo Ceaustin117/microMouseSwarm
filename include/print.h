@@ -1,6 +1,5 @@
-#ifndef PRINTERS_H
-#define PRINTERS_H
-
+#ifndef PRINT_H
+#define PRINT_H
 #include "microMouse.h"
 
 extern void printGrid(int **maze);
@@ -10,5 +9,4 @@ extern int checkMicroMouseArray(int i,int j, microMouseBot **microMouseArray);
 extern int checkMicroMouseArrayMazes(int i,int j, microMouseBot **microMouseArray);
 extern int checkFirstMicroMouseBot(int i,int j, microMouseBot **microMouseArray);
 
-#endif /* PRINTERS_H */
-
+#endif /* PRINT_H */
