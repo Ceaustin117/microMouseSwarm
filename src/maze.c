@@ -65,7 +65,7 @@ void mazeReset(int **maze) {
         }
 };
 //
-void mazeCarve(int **maze,int x, int y) {
+static void mazeCarve(int **maze,int x, int y) {
 
 	int x1, y1;
 	int x2, y2;
