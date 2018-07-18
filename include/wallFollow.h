@@ -3,10 +3,6 @@
 
 #include "microMouse.h"
 
-#include "staticVars.h"
-#include "movement.h"
-#include "maze.h"
-
 extern void wallFollowRight(int **maze,  int microMouseNum, microMouseBot *microMouse);
 extern void wallFollowLeft(int **maze,int microMouseNum, microMouseBot *microMouse);
 
