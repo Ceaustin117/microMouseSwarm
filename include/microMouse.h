@@ -16,7 +16,7 @@ typedef struct microMouseBot
 	int **microMouseMappedMaze;
 }microMouseBot;
 
-exterm void microMouseShareMapping(microMouseBot *microMouse, microMouseBot *microMouse2);
+extern void microMouseShareMapping(microMouseBot *microMouse, microMouseBot *microMouse2);
 extern void microMouseBotReset(microMouseBot *microMouse);
 extern void microMouseShareMapping(microMouseBot *microMouse, microMouseBot *microMouse2);
 extern void microMouseArrayMapSharing(int** targetGrid, int index, microMouseBot **microMouseArray);
