@@ -23,11 +23,11 @@ void setNumMoves (int m)
 {
 	numMoves = m;
 };
-int setNumTests(int n)
+void setNumTests(int n)
 {
 	numTests = n;
 };
-int setNumBots(int n)
+void setNumBots(int n)
 {
 	numBots = n;
 };
