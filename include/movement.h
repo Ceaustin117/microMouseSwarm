@@ -3,8 +3,10 @@
 
 #include "microMouse.h"
 
-extern void movementMicroMouseArray(int **maze, microMouseBot **microMouseArray);
-extern int movementCountOpen(int **maze);
+static int movementCountOpen(int **maze);
+static void movementMicroMouseArray(int **maze, microMouseBot **microMouseArray);
+
 extern int movementCountStepsFunc();
 
 #endif /* MOVEMENT_H */
+
