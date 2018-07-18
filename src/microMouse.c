@@ -1,53 +1,24 @@
 #include <stdlib.h>
 #include "staticVars.h"
 #include "microMouse.h"
-/*
-   check if microMouse near another microMouse
- */
-int microMouseCheckForNeighbor(microMouseBot * microMouse, microMouseBot * microMouse2) {
-        int i = 0;
-        int j = 0;
-        int x1 = ( * microMouse).nx;
-        int y1 = ( * microMouse).ny;
-        int x2 = ( * microMouse2).nx;
-        int y2 = ( * microMouse2).ny;
-        int val = 0;
-        //if microMouse2 is 1 right of microMouse
-        if (x1 == x2 - 1 && y1 == y2) {
-                val = 1;
-        }
-        //else if microMouse2 is 1 left of microMouse
-        else if (x1 == x2 + 1 && y1 == y2) {
-                val = 1;
-        }
-        //else if microMouse2 is 1 down of microMouse
-        else if (x1 == x2 && y1 == y2 + 1) {
-                val = 1;
-        }
-        //else if microMouse2 is 1 up of microMouse
-        else if (x1 == x2 && y1 == y2 - 1) {
-                val = 1;
-        }
-        return val;
-}
-/*
-//microMouse share mapping
-*/
-void microMouseShareMapping(microMouseBot *microMouse, microMouseBot * microMouse2) {
+void microMouseMakeArray(int **maze,microMouseBot **microMouseArray){
 	int i = 0;
-	int j = 0;
-	int boundsX = getBoundsX();
-	int boundsY = getBoundsY();
-	for (i = 0; i < boundsX; i++) {
-		for (j = 0; j < boundsY; j++) {
-			if (( * microMouse).microMouseMappedMaze[i][j] == 0 || ( * microMouse2).microMouseMappedMaze[i][j] == 0
-					|| (*microMouse).microMouseMappedMaze[i][j]>1) {
-				( * microMouse).microMouseMappedMaze[i][j] = 0;
-				( * microMouse2).microMouseMappedMaze[i][j] = 0;
-			}
+	int numBots = getNumBots();
+	for (i = 0; i < numBots; i++) {
+		microMouseArray[i] = malloc(sizeof(microMouseBot));
+		if( (i % 2) == 0 )
+		{
+			(*microMouseArray[i]).wallFollow = 0;
 		}
+		if( (i % 2) == 1 )
+		{
+			(*microMouseArray[i]).wallFollow = 1;	
+		}
+		microMouseBotReset(microMouseArray[i]);
+		microMousePlaceOnRandomSpot(maze, microMouseArray[i]);
+		maze[( *(microMouseArray[i])).nx][( *(microMouseArray[i])).ny] = i + 2;
 	}
-};
+}
 /*
    Reset microMousebot values
  */
@@ -157,6 +128,54 @@ void microMousePlaceOnRandomSpot(int **maze, microMouseBot *microMouse) {
 			( * microMouse).nx = randX;
 			( * microMouse).ny = randY;
 			flag = 1;
+		}
+	}
+};
+/*
+   check if microMouse near another microMouse
+ */
+static int microMouseCheckForNeighbor(microMouseBot * microMouse, microMouseBot * microMouse2) {
+        int i = 0;
+        int j = 0;
+        int x1 = ( * microMouse).nx;
+        int y1 = ( * microMouse).ny;
+        int x2 = ( * microMouse2).nx;
+        int y2 = ( * microMouse2).ny;
+        int val = 0;
+        //if microMouse2 is 1 right of microMouse
+        if (x1 == x2 - 1 && y1 == y2) {
+                val = 1;
+        }
+        //else if microMouse2 is 1 left of microMouse
+        else if (x1 == x2 + 1 && y1 == y2) {
+                val = 1;
+        }
+        //else if microMouse2 is 1 down of microMouse
+        else if (x1 == x2 && y1 == y2 + 1) {
+                val = 1;
+        }
+        //else if microMouse2 is 1 up of microMouse
+        else if (x1 == x2 && y1 == y2 - 1) {
+                val = 1;
+        }
+        return val;
+}
+/*
+//microMouse share mapping
+*/
+static void microMouseShareMapping(microMouseBot *microMouse, microMouseBot * microMouse2) {
+	int i = 0;
+	int j = 0;
+	int boundsX = getBoundsX();
+	int boundsY = getBoundsY();
+	for (i = 0; i < boundsX; i++) {
+		for (j = 0; j < boundsY; j++) {
+			if (( * microMouse).microMouseMappedMaze[i][j] == 0 || ( * microMouse2).microMouseMappedMaze[i][j] == 0
+			                                                    || (*microMouse).microMouseMappedMaze[i][j] > 1) 
+			{
+				( * microMouse).microMouseMappedMaze[i][j] = 0;
+				( * microMouse2).microMouseMappedMaze[i][j] = 0;
+			}
 		}
 	}
 };
