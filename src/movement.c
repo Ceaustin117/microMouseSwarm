@@ -67,7 +67,6 @@ static void movementMicroMouseArray(int **maze, microMouseBot** microMouseArray)
 		}
 		i++;
 	}
-printf("moved\n");
 };
 /*
  * Function which walks microMousebot until it reaches target
@@ -90,6 +89,12 @@ int movementCountStepsFunc() {
 	mazeReset(maze);
 	mazeGenerate(maze);
 	count = movementCountOpen(maze);
+	if(numBots >= count)
+	{
+	 printf("numBots == %d are too many for maze size == %d press any key to exit\n",numBots,count);
+	 getchar();
+	 return timeSlotsCount;
+	}
 	mazeCopy(maze, mockMaze);
 	//Make microMouseArray
 	microMouseBot **microMouseArray = calloc(numBots, sizeof(microMouseBot));
